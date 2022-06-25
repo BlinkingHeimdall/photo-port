@@ -128,6 +128,8 @@ const PhotoList = ({ category }) => {
     setCurrentPhoto({ ...image, index: i });
     setIsModalOpen(!isModalOpen);
   };
+  
+  const getImageURL = (category, image) => {return require(`../../assets/small/${category}/${image}.jpg`)}
 
   return (
     <div>
@@ -137,7 +139,8 @@ const PhotoList = ({ category }) => {
       <div className="flex-row">
         {currentPhotos.map((image, i) => (
           <img
-            src={require(`../../assets/small/${category}/${i}.jpg`)}
+            // src={require(`../../assets/small/${category}/${i}.jpg`)}
+            src={getImageURL(category, i)}
             alt={image.name}
             className="img-thumbnail mx-1"
             onClick={() => toggleModal(image, i)}
